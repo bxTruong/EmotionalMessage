@@ -1,0 +1,58 @@
+<resources>
+    <string name="app_name">EmotionalMessage</string>
+
+    */------------------ Welcome Fragment ------------------/*
+    <string name="hello">Xin Chào</string>
+    <string name="slogan">Cảm xúc nhắn nơi nhắn gửi yêu thương</string>
+    <string name="or">Hoặc</string>
+
+    */------------------ Login Fragment ------------------/*
+    <string name="question_sign_up">Nếu chưa có tài khoản hãy</string>
+
+    */------------------ Loading Dialog ------------------/*
+    <string name="loading_login">Đang Đăng Nhập...</string>
+
+    */------------------ Sign Up Activity ------------------/*
+    <string name="new_account">Tài Khoản Mới</string>
+
+    */------------------ Successful Dialog ------------------/*
+    <string name="successful_sign_up">Đăng Ký Thành Công</string>
+    <string name="successful_login">Bạn có thể đăng nhập vào <br />tài khoản vừa tạo</string>
+
+    */------------------ List Message Fragment ------------------/*
+    <string name="title_toolbar_list_message">Tin Nhắn</string>
+
+    */------------------ Search Fragment ------------------/*
+    <string name="hint_search">Nhập tên cần tìm...</string>
+
+    */------------------ Message Fragment ------------------/*
+    <string name="hint_message">Nhập tin nhắn...</string>
+    <string name="send">Gửi</string>
+    <string name="not_texting_yet">Các bạn chưa nhắn tin gì với nhau</string>
+    <string name="choose_an_image">Chọn một ảnh</string>
+    <string name="sent_an_image">Đã gửi một ảnh</string>
+    <string name="sent">Đã gửi</string>
+    <string name="unsuccessful_sent">Gửi không thành công</string>
+
+    */------------------ Show Image Fragment ------------------/*
+    <string name="is_downloading">Đang tải ảnh xuống</string>
+    <string name="download_successful">Tải ảnh thành công</string>
+    <string name="sent_at">Đã gửi lúc %s</string>
+
+    */------------------ Bottom Sheet Dialog Message ------------------/*
+    <string name="copy">Sao chép</string>
+    <string name="delete">Gỡ bỏ</string>
+    <string name="forward">Chuyển tiếp</string>
+    <string name="success_copy">Sao chépthành công</string>
+    <string name="undeveloped">Chưa phát triển</string>
+    <string name="have_removed">Đã gỡ bỏ tin nhắn</string>
+
+    */------------------ General ------------------/*
+    <string name="login">Đăng Nhập</string>
+    <string name="sign_up">Đăng Ký</string>
+    <string name="username_hint">Tài khoản</string>
+    <string name="password_hint">Mật khẩu</string>
+    <string name="full_name_hint">Họ và tên</string>
+    <string name="birth_day_hint">Ngày sinh</string>
+
+</resources>

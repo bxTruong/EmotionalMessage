@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="purple_200">#FFBB86FC</color>
+    <color name="purple_500">#FF6200EE</color>
+    <color name="purple_700">#FF3700B3</color>
+    <color name="teal_200">#FF03DAC5</color>
+    <color name="teal_700">#FF018786</color>
+    <color name="black">#FF000000</color>
+    <color name="white">#FFFFFFFF</color>
+    <color name="white40">#66FFFFFF</color>
+    <color name="main_color">#0FADCC</color>
+    <color name="blue_light_color">#73C8D6</color>
+    <color name="gray_bubblechat">#F2F2F2</color>
+    <color name="black_text">#383838</color>
+    <color name="gray_icon">#3E3E3E</color>
+    <color name="gray_text">#737373</color>
+    <color name="gray_text_light">#969696</color>
+    <color name="gray_border_edit_text">#B9B9B9</color>
+    <color name="gray_line_dialog">#A7A7A7</color>
+    <color name="gray_line_item_chat">#c8c7cc</color>
+    <color name="color_pink_orange">#FF4D47</color>
+    <color name="color_green">#16D91C</color>
+    <color name="transparent">#00F44336</color>
+</resources>

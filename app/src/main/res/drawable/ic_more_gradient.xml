@@ -1,0 +1,65 @@
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:aapt="http://schemas.android.com/aapt"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:width="384dp"
+    android:height="76.8dp"
+    android:viewportWidth="384"
+    android:viewportHeight="76.8">
+    <path android:pathData="M76.8,38.4A38.4,38.4 0,1 1,38.4 0a38.4,38.4 0,0 1,38.4 38.4ZM76.8,38.4">
+        <aapt:attr name="android:fillColor">
+            <gradient
+                android:endX="53.04"
+                android:endY="-3.0517579E-6"
+                android:startX="53.04"
+                android:startY="192.66"
+                android:type="linear">
+                <item
+                    android:color="#73C8D6"
+                    android:offset="0"
+                    tools:ignore="VectorRaster" />
+                <item
+                    android:color="#0FADCC"
+                    android:offset="1"
+                    tools:ignore="VectorRaster" />
+            </gradient>
+        </aapt:attr>
+    </path>
+    <path android:pathData="M230.4,38.4A38.4,38.4 0,1 1,192 0a38.4,38.4 0,0 1,38.4 38.4ZM230.4,38.4">
+        <aapt:attr name="android:fillColor">
+            <gradient
+                android:endX="53.04"
+                android:endY="-3.0517579E-6"
+                android:startX="53.04"
+                android:startY="192.66"
+                android:type="linear">
+                <item
+                    android:color="#73C8D6"
+                    android:offset="0"
+                    tools:ignore="VectorRaster" />
+                <item
+                    android:color="#0FADCC"
+                    android:offset="1"
+                    tools:ignore="VectorRaster" />
+            </gradient>
+        </aapt:attr>
+    </path>
+    <path android:pathData="M384,38.4A38.4,38.4 0,1 1,345.6 0,38.4 38.4,0 0,1 384,38.4ZM384,38.4">
+        <aapt:attr name="android:fillColor">
+            <gradient
+                android:endX="53.04"
+                android:endY="-3.0517579E-6"
+                android:startX="53.04"
+                android:startY="192.66"
+                android:type="linear">
+                <item
+                    android:color="#73C8D6"
+                    android:offset="0"
+                    tools:ignore="VectorRaster" />
+                <item
+                    android:color="#0FADCC"
+                    android:offset="1"
+                    tools:ignore="VectorRaster" />
+            </gradient>
+        </aapt:attr>
+    </path>
+</vector>

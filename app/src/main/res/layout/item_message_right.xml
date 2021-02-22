@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="message"
+            type="com.truongbx.emotionalmessage.model.Message" />
+
+        <variable
+            name="isExpand"
+            type="Boolean" />
+
+        <variable
+            name="isImage"
+            type="Boolean" />
+
+        <variable
+            name="listener"
+            type="com.truongbx.emotionalmessage.ui.message.MessageAdapter.Listener" />
+
+        <import type="android.view.View" />
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/_80sdp"
+        android:layout_marginTop="@dimen/_1sdp"
+        android:animateLayoutChanges="true"
+        android:gravity="end"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="end"
+            android:onClick="@{()->listener.onClickMessage(message, isImage)}"
+            android:onLongClick="@{(view) -> listener.onLongClickMessage(view,message)}"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/_47sdp"
+                android:layout_marginEnd="@dimen/_10sdp"
+                android:fontFamily="@font/nunito_semibold"
+                android:text="@{message.time}"
+                android:textColor="@color/gray_text_light"
+                android:textSize="@dimen/_9sdp"
+                android:visibility="@{isExpand ? View.VISIBLE : View.GONE, default = visible }"
+                tools:text="07:00" />
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_2sdp"
+                android:background="@drawable/bubble_chat_gradient"
+                android:visibility="@{isImage ? View.GONE : View.VISIBLE , default = visible}"
+                tools:ignore="UselessParent">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="@dimen/_4sdp"
+                    android:layout_marginVertical="@dimen/_2sdp"
+                    android:gravity="center_vertical"
+                    android:text="@{message.message}"
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/_14sdp"
+                    tools:text="đây là một tin nhắn rất dài dài ơi là dài" />
+            </LinearLayout>
+
+            <com.makeramen.roundedimageview.RoundedImageView
+                android:layout_width="wrap_content"
+                android:layout_height="@dimen/_120sdp"
+                android:layout_marginTop="@dimen/_2sdp"
+                android:layout_marginEnd="@dimen/_8sdp"
+                android:adjustViewBounds="true"
+                android:src_glide="@{message.url}"
+                android:visibility="@{isImage ? View.VISIBLE : View.GONE, default=gone}"
+                app:riv_corner_radius="@dimen/_8sdp"
+                tools:src="@drawable/test_img1" />
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_2sdp"
+                android:gravity="center_vertical"
+                android:orientation="horizontal"
+                android:visibility="@{isExpand ? View.VISIBLE : View.GONE, default = visible}"
+                tools:ignore="UseCompoundDrawables">
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:image_notification="@{message.notification}"
+                    android:src="@drawable/ic_warning_message"
+                    tools:ignore="ContentDescription" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/_4sdp"
+                    android:layout_marginEnd="@dimen/_10sdp"
+                    android:fontFamily="@font/nunito_semibold"
+                    android:text="@{message.notification}"
+                    android:textColor="@color/gray_text_light"
+                    android:textSize="@dimen/_9sdp"
+                    tools:text="Gửi thất bại" />
+            </LinearLayout>
+        </LinearLayout>
+    </LinearLayout>
+</layout>

@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="large_text">@dimen/_20sdp</dimen>
+    <dimen name="button_text">@dimen/_16sdp</dimen>
+    <dimen name="small_text">@dimen/_12sdp</dimen>
+        <dimen name="edit_text">@dimen/_14sdp</dimen>
+    <dimen name="default_text">@dimen/_14sdp</dimen>
+    <dimen name="border_toolbar">@dimen/_24sdp</dimen>
+
+</resources>

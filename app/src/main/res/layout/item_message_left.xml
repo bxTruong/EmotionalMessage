@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="message"
+            type="com.truongbx.emotionalmessage.model.Message" />
+
+        <variable
+            name="isExpand"
+            type="Boolean" />
+
+        <variable
+            name="isImage"
+            type="Boolean" />
+
+        <variable
+            name="listener"
+            type="com.truongbx.emotionalmessage.ui.message.MessageAdapter.Listener" />
+
+        <variable
+            name="seen"
+            type="String" />
+
+        <import type="android.view.View" />
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/_1sdp"
+        android:layout_marginEnd="@dimen/_60sdp"
+        android:orientation="vertical">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/_48sdp"
+            android:fontFamily="@font/nunito_semibold"
+            android:text="@{message.time}"
+            android:textColor="@color/gray_text_light"
+            android:textSize="@dimen/_9sdp"
+            android:visibility="@{isExpand ? View.VISIBLE : View.GONE, default = visible}"
+            tools:text="07:00" />
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/_2sdp"
+            android:gravity="bottom"
+            android:onClick="@{()->listener.onClickMessage(message, isImage)}"
+            android:onLongClick="@{(view) -> listener.onLongClickMessage(view,message)}"
+            android:orientation="horizontal">
+
+            <com.makeramen.roundedimageview.RoundedImageView
+                android:layout_width="@dimen/_24sdp"
+                android:layout_height="@dimen/_24sdp"
+                android:layout_marginHorizontal="@dimen/_8sdp"
+                android:scaleType="fitCenter"
+                android:src="@drawable/ic_launcher_background"
+                app:riv_corner_radius="@dimen/_50sdp"
+                app:riv_oval="true" />
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/bubble_chat_gray"
+                android:visibility="@{isImage ? View.GONE : View.VISIBLE, default=visible}">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="@dimen/_4sdp"
+                    android:gravity="center_vertical"
+                    android:text="@{message.message}"
+                    android:textColor="@color/black_text"
+                    android:textSize="@dimen/_14sdp"
+                    tools:text="Đây là một tin nhắn rất dài dài ơi là dài luôn" />
+            </LinearLayout>
+
+            <com.makeramen.roundedimageview.RoundedImageView
+                android:layout_width="wrap_content"
+                android:layout_height="@dimen/_120sdp"
+                android:adjustViewBounds="true"
+                android:src_glide="@{message.url}"
+                android:visibility="@{isImage ? View.VISIBLE : View.GONE, default=gone}"
+                app:riv_corner_radius="@dimen/_8sdp"
+                tools:src="@drawable/test_img1" />
+        </LinearLayout>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/_48sdp"
+            android:layout_marginTop="@dimen/_2sdp"
+            android:fontFamily="@font/nunito_semibold"
+            android:text="@{seen}"
+            android:textColor="@color/gray_text_light"
+            android:textSize="@dimen/_9sdp"
+            android:visibility="@{isExpand ? View.VISIBLE : View.GONE, default = visible}"
+            tools:text="Đã xem" />
+    </LinearLayout>
+</layout>

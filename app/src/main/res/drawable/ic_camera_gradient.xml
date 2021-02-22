@@ -1,0 +1,46 @@
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:aapt="http://schemas.android.com/aapt"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:width="471.04dp"
+    android:height="376.83dp"
+    android:viewportWidth="471.04"
+    android:viewportHeight="376.83">
+    <path android:pathData="M414.72,65.54L365.57,65.54l-27.14,-41c-10.24,-15.36 -28.16,-24.58 -46.59,-24.58L179.2,-0.04c-18.43,0 -36.35,9.22 -46.59,24.58l-27.14,41L56.32,65.54a56.16,56.16 0,0 0,-56.32 56.32L0,320.52A56.16,56.16 0,0 0,56.32 376.84L414.72,376.84a56.16,56.16 0,0 0,56.32 -56.32L471.04,121.86A56.16,56.16 0,0 0,414.72 65.54ZM235.52,330.76a127,127 0,0 1,-127 -127c0,-70.14 56.84,-126.46 127,-126.46a127,127 0,0 1,127 127C362.52,273.92 305.66,330.76 235.52,330.76ZM407.52,144.9L385.02,144.9a16.66,16.66 0,0 1,0 -33.28L405.52,111.62a16.62,16.62 0,0 1,17.41 15.87A16.21,16.21 0,0 1,407.52 144.9Z">
+        <aapt:attr name="android:fillColor">
+            <gradient
+                android:endX="53.04"
+                android:endY="-3.0517579E-6"
+                android:startX="53.04"
+                android:startY="192.66"
+                android:type="linear">
+                <item
+                    android:color="#73C8D6"
+                    android:offset="0"
+                    tools:ignore="VectorRaster" />
+                <item
+                    tools:ignore="VectorRaster"
+                    android:color="#0FADCC"
+                    android:offset="1" />
+            </gradient>
+        </aapt:attr>
+    </path>
+    <path android:pathData="M235.52,133.64a70.8,70.8 0,0 0,-70.66 70.65c0,38.91 31.75,70.15 70.66,70.15a70.81,70.81 0,0 0,70.66 -70.66C306.18,164.87 274.43,133.64 235.52,133.64Z">
+        <aapt:attr name="android:fillColor">
+            <gradient
+                android:endX="93.04"
+                android:endY="-3.0517579E-6"
+                android:startX="53.04"
+                android:startY="192.66"
+                android:type="linear">
+                <item
+                    tools:ignore="VectorRaster"
+                    android:color="#73C8D6"
+                    android:offset="0" />
+                <item
+                    tools:ignore="VectorRaster"
+                    android:color="#0FADCC"
+                    android:offset="1" />
+            </gradient>
+        </aapt:attr>
+    </path>
+</vector>

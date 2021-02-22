@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <variable
+            name="User"
+            type="com.truongbx.emotionalmessage.model.User" />
+
+        <variable
+            name="imageUrl"
+            type="String" />
+
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:paddingTop="@dimen/_12sdp">
+
+        <com.makeramen.roundedimageview.RoundedImageView
+            android:id="@+id/imgAvatarItemSearch"
+            android:layout_width="@dimen/_36sdp"
+            android:layout_height="@dimen/_36sdp"
+            android:scaleType="fitCenter"
+            app:riv_corner_radius="@dimen/_50sdp"
+            app:riv_oval="true"
+            android:src="@drawable/ic_launcher_background" />
+
+        <TextView
+            android:id="@+id/tvNameItemSearch"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/_12sdp"
+            android:ellipsize="end"
+            android:fontFamily="@font/nunito_bold"
+            android:maxLines="1"
+            android:text="@{User.full_name, default=Name}"
+            android:textColor="@color/black_text"
+            android:textSize="@dimen/_14sdp" />
+
+    </LinearLayout>
+</layout>

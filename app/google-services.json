@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "266430328328",
+    "project_id": "emotionalmessagekotlin",
+    "storage_bucket": "emotionalmessagekotlin.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:266430328328:android:fd7f2ad9f927e0caa36bbd",
+        "android_client_info": {
+          "package_name": "com.truongbx.emotionalmessage"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "266430328328-m1oq82kmdgl68rcgkh05glp3phip32nb.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCdSLcyoRN-1pbI137uDXDbiMl14dJJlJc"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "266430328328-m1oq82kmdgl68rcgkh05glp3phip32nb.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

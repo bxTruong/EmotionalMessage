@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/navigation"
+    app:startDestination="@id/messageListFragment">
+
+    <fragment
+        android:id="@+id/loginFragment"
+        android:name="com.truongbx.emotionalmessage.ui.login.LoginFragment"
+        android:label="fragment_login"
+        tools:layout="@layout/fragment_login">
+        <action
+            android:id="@+id/action_loginFragment_to_signUpFragment"
+            app:destination="@id/signUpFragment" />
+        <action
+            android:id="@+id/action_loginFragment_to_messageListFragment"
+            app:destination="@id/messageListFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/signUpFragment"
+        android:name="com.truongbx.emotionalmessage.ui.sign_up.SignUpFragment"
+        android:label="fragment_sign_up"
+        tools:layout="@layout/fragment_sign_up" />
+    <fragment
+        android:id="@+id/messageListFragment"
+        android:name="com.truongbx.emotionalmessage.ui.message_list.MessageListFragment"
+        android:label="fragment_message_list"
+        tools:layout="@layout/fragment_message_list">
+        <action
+            android:id="@+id/action_messageListFragment_to_searchFragment"
+            app:destination="@id/searchFragment" />
+        <action
+            android:id="@+id/action_messageListFragment_to_messageFragment"
+            app:destination="@id/messageFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/searchFragment"
+        android:name="com.truongbx.emotionalmessage.ui.search.SearchFragment"
+        android:label="fragment_search"
+        tools:layout="@layout/fragment_search">
+        <action
+            android:id="@+id/action_searchFragment_to_messageFragment"
+            app:destination="@id/messageFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/profileFragment"
+        android:name="com.truongbx.emotionalmessage.ui.profile.ProfileFragment"
+        android:label="fragment_profile"
+        tools:layout="@layout/fragment_profile" />
+    <fragment
+        android:id="@+id/messageFragment"
+        android:name="com.truongbx.emotionalmessage.ui.message.MessageFragment"
+        android:label="fragment_message"
+        tools:layout="@layout/fragment_message">
+        <argument
+            android:name="uid"
+            app:argType="string" />
+        <action
+            android:id="@+id/action_messageFragment_to_showImageFragment"
+            app:destination="@id/showImageFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/showImageFragment"
+        android:name="com.truongbx.emotionalmessage.ui.show_image.ShowImageFragment"
+        android:label="fragment_show_image"
+        tools:layout="@layout/fragment_show_image">
+        <argument
+            android:name="messageId"
+            app:argType="string" />
+    </fragment>
+</navigation>
