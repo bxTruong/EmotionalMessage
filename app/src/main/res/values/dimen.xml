@@ -3,8 +3,12 @@
     <dimen name="large_text">@dimen/_20sdp</dimen>
     <dimen name="button_text">@dimen/_16sdp</dimen>
     <dimen name="small_text">@dimen/_12sdp</dimen>
-        <dimen name="edit_text">@dimen/_14sdp</dimen>
+    <dimen name="edit_text">@dimen/_14sdp</dimen>
     <dimen name="default_text">@dimen/_14sdp</dimen>
     <dimen name="border_toolbar">@dimen/_24sdp</dimen>
+
+    <dimen name="name_setting">@dimen/_16sdp</dimen>
+    <dimen name="see_more_setting">@dimen/_13sdp</dimen>
+    <dimen name="title_setting">@dimen/_16sdp</dimen>
 
 </resources>

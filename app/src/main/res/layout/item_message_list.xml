@@ -13,6 +13,10 @@
             name="message"
             type="com.truongbx.emotionalmessage.model.Message" />
 
+        <variable
+            name="messageList"
+            type="com.truongbx.emotionalmessage.model.MessageList" />
+
         <import type="com.truongbx.emotionalmessage.helper.FontTypes" />
 
         <import type="android.view.View" />
@@ -20,6 +24,7 @@
     </data>
 
     <RelativeLayout
+        android:foreground="?android:attr/selectableItemBackground"
         android:id="@+id/containerItemChat"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -28,12 +33,12 @@
         android:gravity="center_vertical">
 
         <com.makeramen.roundedimageview.RoundedImageView
+            android:src_glide="@{user.avatar}"
             android:id="@+id/imgAvatarItemChat"
             android:layout_width="@dimen/_48sdp"
             android:layout_height="@dimen/_48sdp"
             android:layout_marginTop="@dimen/_6sdp"
             android:scaleType="centerCrop"
-            android:src="@{user.avatar}"
             app:riv_corner_radius="@dimen/_48sdp"
             app:riv_oval="true"
             tools:src="@drawable/ic_launcher_background" />
@@ -116,12 +121,12 @@
                     android:ellipsize="end"
                     android:font_custom="@{message.isseen ? FontTypes.NUNITO_SEMIBOLD : FontTypes.NUNITO_BOLD}"
                     android:maxLines="1"
-                    android:text="@{message.message}"
+                    android:text="@{message.sender.equals(messageList.uid) ? message.message : @string/my_message(message.message)}"
                     android:textColor="@{message.isseen ? @color/gray_text_light : @color/black_text,default= @color/gray_text_light}"
                     android:textSize="@dimen/_12sdp"
                     tools:text="Người anh em cho xin cái địa chỉgười anh em cho xin cái địa chỉ" />
 
-                <TextView
+               <!-- <TextView
                     android:id="@+id/textView4"
                     android:layout_width="@dimen/_20sdp"
                     android:layout_height="@dimen/_20sdp"
@@ -133,7 +138,7 @@
                     android:paddingEnd="@dimen/_3sdp"
                     android:textColor="@color/white"
                     android:textSize="@dimen/_9sdp"
-                    tools:text="10" />
+                    tools:text="10" />-->
             </LinearLayout>
         </LinearLayout>
 

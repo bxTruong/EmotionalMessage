@@ -1,42 +1,50 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:gravity="center_horizontal"
-    android:orientation="vertical"
-    android:padding="20dp"
-    tools:context=".ui.login.LoginFragment">
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Đăng Nhập"
-        android:textSize="20sp" />
+    <data>
 
-    <EditText
-        android:id="@+id/edtEmailLogin"
+    </data>
+
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        android:hint="Email" />
+        android:layout_height="match_parent"
+        android:gravity="center_horizontal"
+        android:orientation="vertical"
+        android:padding="20dp"
+        tools:context=".ui.login.LoginFragment">
 
-    <EditText
-        android:id="@+id/edtPasswordLogin"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        android:hint="Password" />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Đăng Nhập"
+            android:textSize="20sp" />
 
-    <Button
-        android:id="@+id/btnLogin"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Đăng Nhập" />
-    <Button
-        android:id="@+id/btnOpenSignUp"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Đăng Ký" />
+        <EditText
+            android:id="@+id/edtEmailLogin"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:hint="Email" />
 
-</LinearLayout>
+        <EditText
+            android:id="@+id/edtPasswordLogin"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:hint="Password" />
+
+        <Button
+            android:id="@+id/btnLogin"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Đăng Nhập" />
+
+        <Button
+            android:id="@+id/btnOpenSignUp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Đăng Ký" />
+
+    </LinearLayout>
+</layout>

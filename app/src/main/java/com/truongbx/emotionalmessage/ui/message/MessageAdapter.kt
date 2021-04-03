@@ -7,9 +7,14 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.database.DataSnapshot
+import com.google.firebase.database.DatabaseError
+import com.google.firebase.database.ValueEventListener
 import com.truongbx.emotionalmessage.databinding.ItemMessageLeftBinding
 import com.truongbx.emotionalmessage.databinding.ItemMessageRightBinding
+import com.truongbx.emotionalmessage.helper.InitFirebase.reference
 import com.truongbx.emotionalmessage.model.Message
+import com.truongbx.emotionalmessage.model.User
 
 class MessageAdapter(
     var messages: ArrayList<Message>, var listener: Listener
@@ -44,6 +49,17 @@ class MessageAdapter(
             binding.listener = listener
             binding.seen = if (item.isseen) "Đã xem" else "Chưa xem"
             binding.isImage = item.url != "null" == true
+            reference.child("Users").child(item.receiver)
+                .addValueEventListener(object : ValueEventListener {
+                    override fun onCancelled(error: DatabaseError) {
+                    }
+
+                    override fun onDataChange(snapshot: DataSnapshot) {
+                        val user: User = snapshot.getValue(User::class.java)!!
+                        binding.reciever = user
+                    }
+
+                })
         }
     }
 
@@ -70,7 +86,6 @@ class MessageAdapter(
     override fun getItemCount() = messages.size
 
     override fun onBindViewHolder(holder: RecyclerView.ViewHolder, position: Int) {
-
         if (holder is MessageRightHolder) {
             holder.bind(messages[position])
         } else if (holder is MessageLeftHolder) {

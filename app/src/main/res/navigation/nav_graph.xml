@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/navigation"
-    app:startDestination="@id/messageListFragment">
+    app:startDestination="@id/loginFragment">
 
     <fragment
         android:id="@+id/loginFragment"
@@ -29,10 +29,25 @@
         tools:layout="@layout/fragment_message_list">
         <action
             android:id="@+id/action_messageListFragment_to_searchFragment"
-            app:destination="@id/searchFragment" />
+            app:destination="@id/searchFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right" />
         <action
             android:id="@+id/action_messageListFragment_to_messageFragment"
-            app:destination="@id/messageFragment" />
+            app:destination="@id/messageFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right" />
+        <action
+            android:id="@+id/action_messageListFragment_to_settingFragment"
+            app:destination="@id/settingFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right" />
     </fragment>
     <fragment
         android:id="@+id/searchFragment"
@@ -41,7 +56,11 @@
         tools:layout="@layout/fragment_search">
         <action
             android:id="@+id/action_searchFragment_to_messageFragment"
-            app:destination="@id/messageFragment" />
+            app:destination="@id/messageFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right" />
     </fragment>
     <fragment
         android:id="@+id/profileFragment"
@@ -58,7 +77,11 @@
             app:argType="string" />
         <action
             android:id="@+id/action_messageFragment_to_showImageFragment"
-            app:destination="@id/showImageFragment" />
+            app:destination="@id/showImageFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right" />
     </fragment>
     <fragment
         android:id="@+id/showImageFragment"
@@ -68,5 +91,14 @@
         <argument
             android:name="messageId"
             app:argType="string" />
+    </fragment>
+    <fragment
+        android:id="@+id/settingFragment"
+        android:name="com.truongbx.emotionalmessage.ui.setting.SettingFragment"
+        android:label="SettingFragment"
+        tools:layout="@layout/fragment_setting">
+        <action
+            android:id="@+id/action_settingFragment_to_loginFragment"
+            app:destination="@id/loginFragment" />
     </fragment>
 </navigation>

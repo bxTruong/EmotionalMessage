@@ -1,6 +1,7 @@
 package com.truongbx.emotionalmessage.ui.profile
 
 import android.os.Bundle
+import android.util.Log
 import android.view.View
 import androidx.fragment.app.Fragment
 import com.google.firebase.auth.FirebaseAuth
@@ -29,7 +30,7 @@ class   ProfileFragment : Fragment(R.layout.fragment_profile) {
                 if(p0.exists()){
                    val user=p0.getValue(User::class.java)
 
-                    tvUser.text=user?.uid
+                    Log.e("AAAB","${user?.uid}")
                 }
             }
 

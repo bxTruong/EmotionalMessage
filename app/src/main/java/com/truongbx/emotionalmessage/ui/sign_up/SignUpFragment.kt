@@ -8,7 +8,9 @@ import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.DatabaseReference
 import com.google.firebase.database.FirebaseDatabase
 import com.truongbx.emotionalmessage.R
+import com.truongbx.emotionalmessage.helper.Helper
 import kotlinx.android.synthetic.main.fragment_sign_up.*
+import com.truongbx.emotionalmessage.model.User
 
 
 class SignUpFragment : Fragment(R.layout.fragment_sign_up) {
@@ -22,7 +24,7 @@ class SignUpFragment : Fragment(R.layout.fragment_sign_up) {
             val email = edtEmail.text.toString()
             val password = edtPassword.text.toString()
             val phone = edtPhone.text.toString()
-            val date = edtDate.text.toString()
+            val name = edtFullName.text.toString()
 
             mAuth.createUserWithEmailAndPassword(email, password)
                 .addOnCompleteListener { task ->
@@ -30,16 +32,19 @@ class SignUpFragment : Fragment(R.layout.fragment_sign_up) {
                         firebaseUserID = mAuth.currentUser!!.uid
                         refUsers = FirebaseDatabase.getInstance().reference.child("Users")
                             .child(firebaseUserID)
-                        val userHashMap = HashMap<String, Any>()
-                        userHashMap["uid"] = firebaseUserID
-                        userHashMap["image"] =
-                            "https://i.pinimg.com/564x/44/1a/46/441a4698742a1b87b655236d8ef1a7a8.jpg"
-                        userHashMap["username"] = email
-                        userHashMap["phone"] = phone
-                        userHashMap["password"] = password
-                        userHashMap["date"] = date
+                        val date: String = activity?.let { it1 -> Helper(it1).getDate() }!!
+                        val user = User(
+                            email,
+                            password,
+                            name,
+                            date,
+                            "0987654321",
+                            "Nam",
+                            "https://firebasestorage.googleapis.com/v0/b/emotionalmessagekotlin.appspot.com/o/Chat%20Images%2F-MUpfekOeWmHqhuYb8wP.jpg?alt=media&token=aeae0186-b4a6-40c5-8168-ce1d9001b27f",
+                            firebaseUserID
+                        )
 
-                        refUsers.updateChildren(userHashMap).addOnCompleteListener { task ->
+                        refUsers.updateChildren(user.toMap()).addOnCompleteListener { task ->
                             if (task.isSuccessful) {
                                 Toast.makeText(activity, "Success", Toast.LENGTH_SHORT).show()
                             }

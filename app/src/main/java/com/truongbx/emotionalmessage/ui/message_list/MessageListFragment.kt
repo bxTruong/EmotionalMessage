@@ -7,17 +7,19 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
-import androidx.navigation.fragment.findNavController
 import com.google.firebase.database.DataSnapshot
 import com.google.firebase.database.DatabaseError
 import com.google.firebase.database.ValueEventListener
+import com.google.firebase.iid.FirebaseInstanceId
 import com.truongbx.emotionalmessage.R
 import com.truongbx.emotionalmessage.databinding.FragmentMessageListBinding
 import com.truongbx.emotionalmessage.databinding.ItemMessageListBinding
 import com.truongbx.emotionalmessage.helper.Helper
 import com.truongbx.emotionalmessage.helper.InitFirebase
+import com.truongbx.emotionalmessage.helper.navigate
 import com.truongbx.emotionalmessage.model.Message
 import com.truongbx.emotionalmessage.model.MessageList
+import com.truongbx.emotionalmessage.model.Token
 import com.truongbx.emotionalmessage.model.User
 
 
@@ -61,6 +63,14 @@ class MessageListFragment : Fragment() {
                     initRecyclerView(messageLists)
                 }
             })
+        updateToken(FirebaseInstanceId.getInstance().token)
+    }
+
+    private fun updateToken(refreshedToken: String?) {
+        val token1 = refreshedToken?.let { Token(it) }
+        InitFirebase.reference.child("Tokens")
+            .child(InitFirebase.firebaseUser!!.uid)
+            .setValue(token1?.toMap())
     }
 
     private fun initRecyclerView(messageLists: ArrayList<MessageList>) {
@@ -102,10 +112,18 @@ class MessageListFragment : Fragment() {
                 })
     }
 
-    fun openSearch() {
-        val action =
+    fun openSearchFragment() {
+        navigate(
+            binding.root,
             MessageListFragmentDirections.actionMessageListFragmentToSearchFragment()
-        findNavController().navigate(action)
+        )
+    }
+
+    fun openSettingFragment() {
+        navigate(
+            binding.root,
+            MessageListFragmentDirections.actionMessageListFragmentToSettingFragment()
+        )
     }
 
 }

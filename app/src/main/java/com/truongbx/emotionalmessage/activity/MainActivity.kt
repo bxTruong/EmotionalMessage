@@ -6,6 +6,7 @@ import androidx.navigation.NavController
 import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.fragment.findNavController
 import com.truongbx.emotionalmessage.R
+import com.truongbx.emotionalmessage.helper.readTheme
 
 class MainActivity : AppCompatActivity() {
     private lateinit var navController: NavController
@@ -15,7 +16,7 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
 
         initNavHostFragment()
-
+        readTheme(this)
     }
 
     private fun initNavHostFragment() {

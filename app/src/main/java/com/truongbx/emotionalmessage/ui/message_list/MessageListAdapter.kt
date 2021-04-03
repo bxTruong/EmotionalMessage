@@ -15,9 +15,9 @@ class MessageListAdapter(
     inner class MessageListHolder(val binding: ItemMessageListBinding) :
         RecyclerView.ViewHolder(binding.root) {
         fun bind(item: MessageList) {
-
             messageListSetValue.setMessage(item.message_id, binding)
             messageListSetValue.setUserName(item.uid, binding)
+            binding.messageList=item
             binding.root.setOnClickListener {
                 val action =
                     MessageListFragmentDirections.actionMessageListFragmentToMessageFragment(

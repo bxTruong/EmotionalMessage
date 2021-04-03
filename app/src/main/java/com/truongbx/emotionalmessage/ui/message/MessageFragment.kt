@@ -32,10 +32,16 @@ import com.truongbx.emotionalmessage.R
 import com.truongbx.emotionalmessage.databinding.FragmentMessageBinding
 import com.truongbx.emotionalmessage.helper.Helper
 import com.truongbx.emotionalmessage.helper.InitFirebase
-import com.truongbx.emotionalmessage.model.Message
-import com.truongbx.emotionalmessage.model.MessageList
-import com.truongbx.emotionalmessage.model.User
+import com.truongbx.emotionalmessage.helper.toast
+import com.truongbx.emotionalmessage.model.*
+import com.truongbx.emotionalmessage.notification.InitRetrofit
+import com.truongbx.emotionalmessage.notification.InitRetrofit.Companion.getClient
+import com.truongbx.emotionalmessage.notification.MyResponse
+import com.truongbx.emotionalmessage.notification.NotificationAPI
 import kotlinx.android.synthetic.main.fragment_message.*
+import retrofit2.Call
+import retrofit2.Callback
+import retrofit2.Response
 import java.util.*
 
 @Suppress("DEPRECATION", "UNREACHABLE_CODE", "ALWAYS_NULL", "NAME_SHADOWING")
@@ -48,6 +54,7 @@ class MessageFragment : Fragment() {
     private lateinit var binding: FragmentMessageBinding
     private lateinit var receiver: String
     private lateinit var helper: Helper
+    var notificationAPI: NotificationAPI? = null
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -63,18 +70,19 @@ class MessageFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-
         receiver = args.uid
-
         helper = activity?.let { Helper(it) }!!
-        helper.statusBarWhite()
         binding.helper = helper
         binding.message = this
 
+        helper.setStatusBar("Message")
         infoReceiver(receiver)
         setUpEditText()
         retrieveMessages(firebaseUser!!.uid, receiver)
+
+        notificationAPI = getClient()?.create(NotificationAPI::class.java)
     }
+
 
     private fun infoReceiver(receiver: String) {
         reference.child("Users")
@@ -140,7 +148,8 @@ class MessageFragment : Fragment() {
                         }
 
                         override fun onDataChange(snapshot: DataSnapshot) {
-                            val messageList1 = MessageList(receiver, message.messageId)
+                            val messageList1 =
+                                MessageList(receiver, message.messageId)
                             chatsListReference.setValue(messageList1.toMap())
 
                             val chatsListReceiver =
@@ -148,15 +157,65 @@ class MessageFragment : Fragment() {
                                     .child("ChatList")
                                     .child(receiver)
                                     .child(firebaseUser!!.uid)
-                            val messageList = MessageList(firebaseUser!!.uid, message.messageId)
+                            val messageList =
+                                MessageList(firebaseUser!!.uid, message.messageId)
                             chatsListReceiver.setValue(messageList.toMap())
                         }
                     })
+
+                    reference.child("Users").child(firebaseUser!!.uid)
+                        .addValueEventListener(object : ValueEventListener {
+                            override fun onCancelled(error: DatabaseError) {
+                            }
+
+                            override fun onDataChange(p0: DataSnapshot) {
+                                val user = p0.getValue(User::class.java)
+                                sendNotification(receiver, user!!.username, message.message)
+                            }
+
+                        })
+
                 } else {
                     reference.child("Chats").child(message.messageId).child("notification")
                         .setValue(activity?.resources?.getString(R.string.unsuccessful_sent))
                 }
             }
+    }
+
+    private fun sendNotification(receiver: String, username: String, message: String) {
+        val ref = reference.child("Tokens").orderByKey().equalTo(receiver)
+            .addValueEventListener(object : ValueEventListener {
+                override fun onCancelled(error: DatabaseError) {
+                }
+
+                override fun onDataChange(p0: DataSnapshot) {
+                    for (dataSnapshot in p0.children) {
+                        val token = dataSnapshot.getValue(Token::class.java)
+                        val notificationData = NotificationData(
+                            firebaseUser!!.uid,
+                            R.mipmap.ic_launcher,
+                            message,
+                            username,
+                            receiver
+                        )
+                        val pushNotification = PushNotification(notificationData, token!!.token)
+                        notificationAPI!!.sendNotification(pushNotification)
+                            .enqueue(object : Callback<MyResponse> {
+                                override fun onFailure(call: Call<MyResponse>, t: Throwable) {
+                                }
+
+                                override fun onResponse(
+                                    call: Call<MyResponse>,
+                                    response: Response<MyResponse>
+                                ) {
+                                    if (response.body()!!.success != 1) {
+                                        activity?.toast("Failed, Notification happen")
+                                    }
+                                }
+                            })
+                    }
+                }
+            })
     }
 
     private fun retrieveMessages(senderId: String, receiverId: String) {

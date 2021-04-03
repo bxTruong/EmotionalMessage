@@ -19,8 +19,9 @@
     <string name="successful_sign_up">Đăng Ký Thành Công</string>
     <string name="successful_login">Bạn có thể đăng nhập vào <br />tài khoản vừa tạo</string>
 
-    */------------------ List Message Fragment ------------------/*
+    */------------------Message List Fragment ------------------/*
     <string name="title_toolbar_list_message">Tin Nhắn</string>
+    <string name="my_message">Bạn: %s</string>
 
     */------------------ Search Fragment ------------------/*
     <string name="hint_search">Nhập tên cần tìm...</string>
@@ -39,6 +40,22 @@
     <string name="download_successful">Tải ảnh thành công</string>
     <string name="sent_at">Đã gửi lúc %s</string>
 
+    */------------------ List Message Fragment ------------------/*
+    <string name="title_toolbar_setting">Cài Đặt</string>
+
+    */------------------ Setting Fragment ------------------/*
+    <string name="see_more">Chạm để xem thêm</string>
+    <string name="theme">Giao Diện</string>
+    <string name="account">Tài Khoản</string>
+    <string name="dark_mode">Nền tối</string>
+    <string name="edit_account">Chỉnh sửa thông tin</string>
+    <string name="change_password">Đổi mật khẩu</string>
+    <string name="other">Khác</string>
+    <string name="help">Trợ giúp</string>
+    <string name="law"><![CDATA[Pháp lý & chính sách]]></string>
+    <string name="version">Phiên bản %s</string>
+    <string name="logout">Đăng xuất</string>
+
     */------------------ Bottom Sheet Dialog Message ------------------/*
     <string name="copy">Sao chép</string>
     <string name="delete">Gỡ bỏ</string>
@@ -54,5 +71,9 @@
     <string name="password_hint">Mật khẩu</string>
     <string name="full_name_hint">Họ và tên</string>
     <string name="birth_day_hint">Ngày sinh</string>
+    <string name="logout_cap">Đăng Xuất</string>
+    <string name="question_log_out">Bạn chắc chứ?</string>
+    <string name="cancel">Hủy</string>
+
 
 </resources>
